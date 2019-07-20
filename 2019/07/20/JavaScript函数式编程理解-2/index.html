@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript函数式编程,">
 
 
 
@@ -80,19 +80,20 @@
 
 
 <meta name="description" content="函数式编程风格​        在JavaScript中，函数本身做为一种特殊对象，属于顶层对象，不依赖于其他对象存在。 清单1.JavaScript中的求和123456789function sum()&amp;#123;    var res = 0;    for (var i = 0; i &amp;lt; arguments.length; i++)&amp;#123;        res += parseI">
+<meta name="keywords" content="JavaScript函数式编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 函数式编程理解笔记(2)">
-<meta property="og:url" content="https://chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/index.html">
+<meta property="og:url" content="chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/index.html">
 <meta property="og:site_name" content="学习笔记">
 <meta property="og:description" content="函数式编程风格​        在JavaScript中，函数本身做为一种特殊对象，属于顶层对象，不依赖于其他对象存在。 清单1.JavaScript中的求和123456789function sum()&amp;#123;    var res = 0;    for (var i = 0; i &amp;lt; arguments.length; i++)&amp;#123;        res += parseI">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/20170412103047794.gif">
-<meta property="og:image" content="https://chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/20170412104033392.gif">
-<meta property="og:updated_time" content="2019-07-20T08:02:44.620Z">
+<meta property="og:image" content="/2019/07/20/JavaScript函数式编程理解-2/20170412103047794.gif">
+<meta property="og:image" content="/2019/07/20/JavaScript函数式编程理解-2/20170412104033392.gif">
+<meta property="og:updated_time" content="2019-07-20T09:34:42.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 函数式编程理解笔记(2)">
 <meta name="twitter:description" content="函数式编程风格​        在JavaScript中，函数本身做为一种特殊对象，属于顶层对象，不依赖于其他对象存在。 清单1.JavaScript中的求和123456789function sum()&amp;#123;    var res = 0;    for (var i = 0; i &amp;lt; arguments.length; i++)&amp;#123;        res += parseI">
-<meta name="twitter:image" content="https://chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/20170412103047794.gif">
+<meta name="twitter:image" content="/2019/07/20/JavaScript函数式编程理解-2/20170412103047794.gif">
 
 
 
@@ -100,7 +101,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -122,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="https://chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/">
+  <link rel="canonical" href="chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/">
 
 
 
@@ -193,6 +194,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -235,12 +256,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/">
+    <link itemprop="mainEntityOfPage" href="chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zxdong">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/coldplay.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -274,6 +295,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -350,13 +393,13 @@
 
 <p>效果图如下：</p>
 <p><strong>图1.过滤之前的效果</strong></p>
-<p><img src="//chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/20170412103047794.gif" alt></p>
+<p><img src="/2019/07/20/JavaScript函数式编程理解-2/20170412103047794.gif" alt></p>
 <p>​        我们通过jQuery对这个集合做一个过滤，在这个例子中，我们保留这样的div，当且仅当这个div中包含一个类名为title的span，而且span中的内容是数字：</p>
 <h2 id="清单14-过滤集合"><a href="#清单14-过滤集合" class="headerlink" title="清单14.过滤集合"></a>清单14.过滤集合</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cons = $(<span class="string">"div.note"</span>).hide();   <span class="comment">//选择note类的div，并隐藏</span></span><br><span class="line">cons.filter(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $(<span class="keyword">this</span>).find(<span class="string">"span.title"</span>).html().match(<span class="regexp">/^\d+$/</span>);</span><br><span class="line">&#125;).show();</span><br></pre></td></tr></table></figure>
 
 <p>​        效果图如下：</p>
 <p><strong>图2.过滤之后的效果</strong></p>
-<p><img src="//chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/20170412104033392.gif" alt></p>
+<p><img src="/2019/07/20/JavaScript函数式编程理解-2/20170412104033392.gif" alt></p>
 <p>​        再来看看jQuery中对数组的操作：</p>
 <h2 id="清单15-jQuery对数组的函数式操作"><a href="#清单15-jQuery对数组的函数式操作" class="headerlink" title="清单15.jQuery对数组的函数式操作"></a>清单15.jQuery对数组的函数式操作</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mapped = $.map([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>],</span><br><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n + <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> greped = $.grep([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>],</span><br><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n % <span class="number">2</span> ==<span class="number">0</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
@@ -379,6 +422,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript函数式编程/" rel="tag"># JavaScript函数式编程</a>
+          
+        </div>
       
 
       
@@ -463,8 +512,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/coldplay.png" alt="zxdong">
+            
               <p class="site-author-name" itemprop="name">zxdong</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">Lights will guide you home.</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -481,13 +532,41 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Chnjack" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -549,7 +628,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -648,6 +727,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
