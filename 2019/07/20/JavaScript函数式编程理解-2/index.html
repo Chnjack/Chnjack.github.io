@@ -79,13 +79,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="学习笔记">
-<meta property="og:url" content="https://chnjack.github.io/index.html">
+<meta name="description" content="函数式编程风格​        在JavaScript中，函数本身做为一种特殊对象，属于顶层对象，不依赖于其他对象存在。 清单1.JavaScript中的求和123456789function sum()&amp;#123;    var res = 0;    for (var i = 0; i &amp;lt; arguments.length; i++)&amp;#123;        res += parseI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 函数式编程理解笔记(2)">
+<meta property="og:url" content="https://chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/index.html">
 <meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="函数式编程风格​        在JavaScript中，函数本身做为一种特殊对象，属于顶层对象，不依赖于其他对象存在。 清单1.JavaScript中的求和123456789function sum()&amp;#123;    var res = 0;    for (var i = 0; i &amp;lt; arguments.length; i++)&amp;#123;        res += parseI">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/20170412103047794.gif">
+<meta property="og:image" content="https://chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/20170412104033392.gif">
+<meta property="og:updated_time" content="2019-07-20T08:02:44.620Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学习笔记">
+<meta name="twitter:title" content="JavaScript 函数式编程理解笔记(2)">
+<meta name="twitter:description" content="函数式编程风格​        在JavaScript中，函数本身做为一种特殊对象，属于顶层对象，不依赖于其他对象存在。 清单1.JavaScript中的求和123456789function sum()&amp;#123;    var res = 0;    for (var i = 0; i &amp;lt; arguments.length; i++)&amp;#123;        res += parseI">
+<meta name="twitter:image" content="https://chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/20170412103047794.gif">
 
 
 
@@ -115,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://chnjack.github.io/">
+  <link rel="canonical" href="https://chnjack.github.io/2019/07/20/JavaScript函数式编程理解-2/">
 
 
 
 
 
-  <title>学习笔记</title>
+  <title>JavaScript 函数式编程理解笔记(2) | 学习笔记</title>
   
 
 
@@ -140,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +220,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/20/JavaScript函数式编程理解-2/" itemprop="url">JavaScript 函数式编程理解笔记(2)</a></h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript 函数式编程理解笔记(2)</h1>
         
 
         <div class="post-meta">
@@ -298,9 +302,7 @@
       
 
       
-        
-          
-            <h1 id="函数式编程风格"><a href="#函数式编程风格" class="headerlink" title="函数式编程风格"></a>函数式编程风格</h1><p>​        在JavaScript中，函数本身做为一种特殊对象，属于顶层对象，不依赖于其他对象存在。</p>
+        <h1 id="函数式编程风格"><a href="#函数式编程风格" class="headerlink" title="函数式编程风格"></a>函数式编程风格</h1><p>​        在JavaScript中，函数本身做为一种特殊对象，属于顶层对象，不依赖于其他对象存在。</p>
 <h2 id="清单1-JavaScript中的求和"><a href="#清单1-JavaScript中的求和" class="headerlink" title="清单1.JavaScript中的求和"></a>清单1.JavaScript中的求和</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++)&#123;</span><br><span class="line">        res += <span class="built_in">parseInt</span>(argument[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">print(sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>));</span><br><span class="line">print(sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>));</span><br></pre></td></tr></table></figure>
 
 <p>运行此段代码，结果如下：</p>
@@ -364,8 +366,6 @@
 <p>​        首先声明一个柯里化的函数 update，这个函数会将传入的参数作为选择器的 id，并更新这个 div 的内容 (innerHTML)。然后声明一个函数 refresh，refresh 接受两个参数，第一个参数为服务器端的 url，第二个参数为一个回调函数，<strong>当服务器端成功返回时，调用该函数</strong> 。</p>
 <p>​        这种模式在实际的编程中相当有效，因为关于如何与服务器通信，以及如果选取页面内容的部分被很好的抽象成函数，现在我们需要做的就是将 url 和 id 传递给 refresh，即可完成需要的动作。函数式编程在很大程度上降低了这个过程的复杂性，这正是我们选择使用该思想的最终原因</p>
 
-          
-        
       
     </div>
     
@@ -382,143 +382,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chnjack.github.io/2019/07/20/JavaScript函数式编程理解-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zxdong">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学习笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/20/JavaScript函数式编程理解-1/" itemprop="url">JavaScript函数式编程理解(1)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-20T13:45:35+08:00">
-                2019-07-20
-              </time>
+              <a href="/2019/07/20/JavaScript函数式编程理解-1/" rel="next" title="JavaScript函数式编程理解(1)">
+                <i class="fa fa-chevron-left"></i> JavaScript函数式编程理解(1)
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="函数式编程的专用概念"><a href="#函数式编程的专用概念" class="headerlink" title="函数式编程的专用概念"></a>函数式编程的专用概念</h1><h2 id="1-匿名函数"><a href="#1-匿名函数" class="headerlink" title="1.匿名函数"></a>1.匿名函数</h2><p>​    在函数式编程中，函数是可以没有名字的。有时为了完成某些事而编写这个函数，但是由于这个函数只是临时性的，所以就没有理由去生成一个顶层的函数对象。如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">map</span>(<span class="params">array,func</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> res = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length; i++)&#123;</span><br><span class="line">        res.push(func(array[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> mapped = map([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>],<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n = n + <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line">print(mapped);</span><br><span class="line">运行这段代码，会打印：</span><br><span class="line"><span class="number">2</span>，<span class="number">4</span>，<span class="number">6</span>，<span class="number">8</span>，<span class="number">10</span><span class="comment">//数组[1,3,5,7,9]中的每一个元素加1</span></span><br></pre></td></tr></table></figure>
-
-<p>map中的第二个参数其实就是匿名函数，它对于map函数的第一个参数来说是有作用的，但是对于map函数外的代码，其实是没有作用的，所以只需要匿名即可。</p>
-<h2 id="2-柯里化"><a href="#2-柯里化" class="headerlink" title="2.柯里化"></a>2.柯里化</h2><p>​        柯里化是把接受多个参数的函数变成接受一个单一参数的函数，并且返回接受余下的参数而且返回结果的新函数。如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curring</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> num + x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> add5 = curring(<span class="number">5</span>);</span><br><span class="line"><span class="keyword">var</span> add6 = curring(<span class="number">6</span>);</span><br><span class="line">print(add5(<span class="number">1</span>));</span><br><span class="line">print(add6(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//结果为：</span></span><br><span class="line"><span class="comment">//6</span></span><br><span class="line"><span class="comment">//7</span></span><br></pre></td></tr></table></figure>
-
-<p>​        要注意的是，curring函数接受一个参数，并返回一个函数，这个函数可以像预期那样被调用。而两个变量add5、add6可以保持curring()返回的函数，而这个函数可以接受一个参数，从而返回代码中的 num + x 的值。</p>
-<h2 id="3-高阶函数"><a href="#3-高阶函数" class="headerlink" title="3.高阶函数"></a>3.高阶函数</h2><p>​        上文匿名函数中的map函数即是一种高阶函数。map(array,func)已经表明：将func作用于array中的每一个元素，最终返回一个新的array。而map对于array和func的实现是没有预先的假设的，所以这种函数被称为“高阶函数”：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">fucntion map = (array,func)&#123;</span><br><span class="line">    <span class="keyword">var</span> res = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length; i++)&#123;</span><br><span class="line">        res.push(func(array[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> mapped = map([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>],<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n += <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line">print(mapped); <span class="comment">//2,4,6,8,10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mapped1 =map([<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>,<span class="string">"four"</span>],</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"("</span>+n+<span class="string">")"</span>;</span><br><span class="line">&#125;);</span><br><span class="line">print(mapped1); <span class="comment">//(one),(two),(three),(four)</span></span><br></pre></td></tr></table></figure>
-
-<p>​        mapped和mapped1都调用了map函数，但是结果不同，是因为map参数本身的已经进行了一次抽象，而map函数进行了第二次抽象。高阶的“阶”可以理解为抽象的层次。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -528,10 +413,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -539,6 +425,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -559,8 +449,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -602,6 +501,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函数式编程风格"><span class="nav-text">函数式编程风格</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#清单1-JavaScript中的求和"><span class="nav-text">清单1.JavaScript中的求和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单2-一些简单的函数抽象"><span class="nav-text">清单2.一些简单的函数抽象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单3-函数式编程风格"><span class="nav-text">清单3.函数式编程风格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单4-一个闭包的例子"><span class="nav-text">清单4.一个闭包的例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单5-jQuery中的闭包"><span class="nav-text">清单5.jQuery中的闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单6-错误的使用闭包"><span class="nav-text">清单6.错误的使用闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单7-错误的结果"><span class="nav-text">清单7.错误的结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单8-错误的原因"><span class="nav-text">清单8.错误的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单9-正确的用法"><span class="nav-text">清单9.正确的用法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实际应用中的例子"><span class="nav-text">实际应用中的例子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#清单10-jQuery选择器"><span class="nav-text">清单10.jQuery选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单11-jQuery操作jQuery对象（List）"><span class="nav-text">清单11.jQuery操作jQuery对象（List）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单12-扩大-缩小jQuery集合"><span class="nav-text">清单12.扩大/缩小jQuery集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单13-页面的HTML结构"><span class="nav-text">清单13.页面的HTML结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单14-过滤集合"><span class="nav-text">清单14.过滤集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单15-jQuery对数组的函数式操作"><span class="nav-text">清单15.jQuery对数组的函数式操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单16-一个页面刷新的例子"><span class="nav-text">清单16.一个页面刷新的例子</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -735,6 +650,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
