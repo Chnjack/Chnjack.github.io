@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java并发编程实战学习笔记-第五章-5.1-同步容器类,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第五章 基础构建模块5.1 线程容器类1##### 5.1.1 同步容器类  ​        同步容器类都是线程安全的，但在某些情况下可能需要额外的客户端加锁来保护复合操作。容器上常见的复合操作包括：迭代、跳转以及条件运算。在同步容器类中，这些复合操作在没有客户端加锁的情况下仍然是线程安全的，但当其他线程并发地修改容器时，它们可能会表现出意料之外的行为。 ​        程序清单5-1给出了在">
+<meta name="keywords" content="Java并发编程实战学习笔记-第五章-5.1-同步容器类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java并发编程实战学习笔记(三)-第五章-5.1-同步容器类">
+<meta property="og:url" content="chnjack.github.io/2019/12/19/Java并发编程实战学习笔记-三-第五章-5-1-同步容器类/index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="第五章 基础构建模块5.1 线程容器类1##### 5.1.1 同步容器类  ​        同步容器类都是线程安全的，但在某些情况下可能需要额外的客户端加锁来保护复合操作。容器上常见的复合操作包括：迭代、跳转以及条件运算。在同步容器类中，这些复合操作在没有客户端加锁的情况下仍然是线程安全的，但当其他线程并发地修改容器时，它们可能会表现出意料之外的行为。 ​        程序清单5-1给出了在">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-19T14:04:55.965Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java并发编程实战学习笔记(三)-第五章-5.1-同步容器类">
+<meta name="twitter:description" content="第五章 基础构建模块5.1 线程容器类1##### 5.1.1 同步容器类  ​        同步容器类都是线程安全的，但在某些情况下可能需要额外的客户端加锁来保护复合操作。容器上常见的复合操作包括：迭代、跳转以及条件运算。在同步容器类中，这些复合操作在没有客户端加锁的情况下仍然是线程安全的，但当其他线程并发地修改容器时，它们可能会表现出意料之外的行为。 ​        程序清单5-1给出了在">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="chnjack.github.io/2019/12/19/Java并发编程实战学习笔记-三-第五章-5-1-同步容器类/">
+
+
+
+
+
+  <title>Java并发编程实战学习笔记(三)-第五章-5.1-同步容器类 | 学习笔记</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学习笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="chnjack.github.io/2019/12/19/Java并发编程实战学习笔记-三-第五章-5-1-同步容器类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zxdong">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/coldplay.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java并发编程实战学习笔记(三)-第五章-5.1-同步容器类</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-19T22:03:48+08:00">
+                2019-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/《JAVA并发编程实战》阅读笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">《JAVA并发编程实战》阅读笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第五章-基础构建模块"><a href="#第五章-基础构建模块" class="headerlink" title="第五章 基础构建模块"></a>第五章 基础构建模块</h2><h4 id="5-1-线程容器类"><a href="#5-1-线程容器类" class="headerlink" title="5.1 线程容器类"></a>5.1 线程容器类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">##### 5.1.1 同步容器类</span><br></pre></td></tr></table></figure>
+
+<p>​        同步容器类都是线程安全的，但在某些情况下可能需要额外的客户端加锁来保护复合操作。容器上常见的复合操作包括：迭代、跳转以及条件运算。在同步容器类中，这些复合操作在没有客户端加锁的情况下仍然是线程安全的，但当其他线程并发地修改容器时，它们可能会表现出意料之外的行为。</p>
+<p>​        程序清单5-1给出了在Vector中定义的两个方法：getLast和deleteLast，它们都会执行“先检查再运行”操作。每个方法首先都获得数组的大小，然后通过结果来获取或删除最后一个元素。</p>
+<h6 id="程序清单5-1-Vector上可能导致混乱结果的复合操作"><a href="#程序清单5-1-Vector上可能导致混乱结果的复合操作" class="headerlink" title="程序清单5-1 Vector上可能导致混乱结果的复合操作"></a>程序清单5-1 Vector上可能导致混乱结果的复合操作</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">getLast</span><span class="params">(Vector list)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> lastIndex = list.size() - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> list.get(lastIndex);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">deleteLast</span><span class="params">(Vector list)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> lastIndex = list.size() - <span class="number">1</span>;</span><br><span class="line">    list.remove(lastIndex);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        如果deleteLast在getLast之前执行，而它们取的是同一个位置的值，那么getLast方法将会抛出ArrayIndexOutOfBoundsException异常。这种情况很好地遵循了Vector的规范——如果请求一个不存在的元素，那么将抛出一个异常。但这不是getLast的调用者所希望得到的结果。</p>
+<p>​        由于同步容器类要遵守同步策略，即支持客户端加锁，因此可能会吃创建一些新的操作，只要我们知道应该使用哪一个锁，那么这些新操作就与容器的其他操作一样都是源自操作。同步容器类通过其自身的锁来保护它的每个方法。</p>
+<p>​        通过获得容器类的锁，我们可以使getLast和deleteLast成为原子操作，如程序清单5-2所示。</p>
+<h6 id="程序清单5-2-在使用客户端加锁的Vector上的复合操作"><a href="#程序清单5-2-在使用客户端加锁的Vector上的复合操作" class="headerlink" title="程序清单5-2 在使用客户端加锁的Vector上的复合操作"></a>程序清单5-2 在使用客户端加锁的Vector上的复合操作</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">getLast</span><span class="params">(Vector list)</span></span>&#123;</span><br><span class="line">	<span class="keyword">synchronized</span>(list)&#123;</span><br><span class="line">		<span class="keyword">int</span> lastIndex = list.size() - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> list.get(lastIndex);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">deleteLast</span><span class="params">(Vector list)</span></span>&#123;</span><br><span class="line">	<span class="keyword">synchronized</span>(list)&#123;</span><br><span class="line">		<span class="keyword">int</span> lastIndex = list.size() - <span class="number">1</span>;</span><br><span class="line">		list.remove(lastIndex);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        在调用size和相应的get之间，Vector的长度可能会发生变化，这种风险在对Vector中的元素进行迭代时仍然会出现，如程序清单5-3所示。</p>
+<h6 id="程序清单5-3-可能抛出ArrayIndexOutOfBoundsException的迭代操作"><a href="#程序清单5-3-可能抛出ArrayIndexOutOfBoundsException的迭代操作" class="headerlink" title="程序清单5-3 可能抛出ArrayIndexOutOfBoundsException的迭代操作"></a>程序清单5-3 可能抛出ArrayIndexOutOfBoundsException的迭代操作</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vector.size(); i++)</span><br><span class="line">	doSomething(vetcor.get(i));</span><br></pre></td></tr></table></figure>
+
+<p>​        我们可以通过在客户端加锁来解决不可靠迭代的问题，但要牺牲一些伸缩性。通过在迭代期间持有Vector的锁，可以防止其他线程在迭代期间修改Vector，如程序清单5-4所示。然而，这同样会导致其他线程在迭代期间无法访问它，因此降低了并发性。</p>
+<h6 id="程序清单5-4-带有客户端加锁的迭代"><a href="#程序清单5-4-带有客户端加锁的迭代" class="headerlink" title="程序清单5-4 带有客户端加锁的迭代"></a>程序清单5-4 带有客户端加锁的迭代</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(vector)&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vector.size(); i++)&#123;</span><br><span class="line">		doSomething(vector.get(i));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-1-2-迭代器与ConcurrentModificationException"><a href="#5-1-2-迭代器与ConcurrentModificationException" class="headerlink" title="5.1.2 迭代器与ConcurrentModificationException"></a>5.1.2 迭代器与ConcurrentModificationException</h4><p>​        无论在直接迭代还是在Java5.0引入的for-each循环语法中，对容器类进行迭代的标准方式都是使用Iterator。然而，如果有其他线程并发地修改容器，那么即使是使用迭代器也无法避免在迭代期间对容器加锁。当它们发现容器在迭代过程中被修改时，就会抛出一个ConcurrentModificationException异常。（及时失败”fail-fast”）</p>
+<p>​        这种“及时失败”的迭代器并不是一种完备的处理机制，而只是“善意地”捕获并发错误，因此只能作为并发问题的预警指示器。它们采用的实现方式是，将计数器的变化与容器关联起来：如果在迭代期间计数器被修改，那么hasNext或next将抛出ConcurrentModificationException。然而，这种检查是在没有同步的情况下进行的，因此可能会看到失效的计数值，而迭代器可能并没有意识到已经发生了修改。这是一种设计上的权衡，从而降低并发修改操作的检测代码对程序性能带来的影响。</p>
+<p>​        在单线程代码中也可能抛出ConcurrentModificationException异常。当对象直接从容器中删除而不是通过Iterator.remove来删除时，就会抛出这个异常。</p>
+<p>​        程序清单5-5说明了如何使用for-each循环语法对List容器进行迭代。从内部来看，javac将生成使用Iterator的代码，反复调用hasNext和next来迭代List对象。要想避免ConcurrentModificationException，就必须在迭代过程中持有容器的锁。</p>
+<h6 id="程序清单5-5-通过Iterator来迭代List"><a href="#程序清单5-5-通过Iterator来迭代List" class="headerlink" title="程序清单5-5 通过Iterator来迭代List"></a>程序清单5-5 通过Iterator来迭代List</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Widget&gt; widgetList = Collections.synchronizedList(<span class="keyword">new</span> ArrayList&lt;Widget&gt;());</span><br><span class="line">...</span><br><span class="line"><span class="comment">// 可能会抛出 ConcurrentModificationException</span></span><br><span class="line"><span class="keyword">for</span>(Widget w : widgetList)</span><br><span class="line">	doSomething(w);</span><br></pre></td></tr></table></figure>
+
+<p>​        然而，有时候开发人员并不希望在迭代期间对容器加锁。例如，某些线程在可以访问容器之前，必须等待迭代过程结束，如果容器的规模很大，那么这些线程将长时间等待，甚至会产生死锁。（详见第10章）</p>
+<p>​        即使不存在饥饿或者死锁等风险，长时间地对容器加锁也会降低程序的可伸缩性。持有锁的时间越长，那么在锁上的竞争就可能更激烈，如果许多线程都在等待锁被释放，那么将极大地降低吞吐量和CPU的利用率。（详见第11章）</p>
+<h4 id="5-1-3-隐藏迭代器"><a href="#5-1-3-隐藏迭代器" class="headerlink" title="5.1.3 隐藏迭代器"></a>5.1.3 隐藏迭代器</h4><p>​        虽然加锁可以防止迭代器抛出ConcurrentModificationException,但你必须要记住在所有对共享容器进行迭代的地方都需要加锁。实际情况要更加复杂，因为在某些情况下，迭代器会隐藏起来，如程序清单5-6中的HiddenIterator所示。在HiddenIterator中没有显式的迭代操作，但在粗体标出的代码中将执行迭代操作。编译器将字符串的连接操作转换为调用StringBuilder.append(Object)，而这个方法又会调用容器的toString方法，标准容器的toString方法将迭代容器，并在每个元素上调用toString来生成容器内容的格式化表示。</p>
+<h6 id="程序清单5-6-隐藏在字符串连接中的迭代操作（不要这么做）"><a href="#程序清单5-6-隐藏在字符串连接中的迭代操作（不要这么做）" class="headerlink" title="程序清单5-6 隐藏在字符串连接中的迭代操作（不要这么做）"></a>程序清单5-6 隐藏在字符串连接中的迭代操作（不要这么做）</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HiddenIterator</span></span>&#123;</span><br><span class="line">	<span class="meta">@GuardedBy</span>(<span class="string">"this"</span>)</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Integer i)</span> </span>&#123; set.add(i); &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(Integer i)</span> </span>&#123; set.remove(i); &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addTenThings</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Random r = <span class="keyword">new</span> Random();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">			add(r.nextInt());</span><br><span class="line">			System.out.println(<span class="string">"DEBUG: added ten elements to "</span> + set); <span class="comment">//粗体代码</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        addTenThings方法可能会抛出ConcurrentModificationException，因为在生成调试消息的过程中，toString对容器set进行迭代。当然，真正的问题在于HiddenIterator不是线程安全的，在使用println中的set之前必须首先获取HiddenIterator的锁，但在调试代码和日志代码中通常会忽视这个要求。</p>
+<p>​        这里得到的教训是，如果状态与保护它的同步代码之间相隔越远，那么开发人员就越容易忘记在访问状态时使用正确的同步。如果HiddenIterator用synchronizedSet来包装HashSet，并且对同步代码进行封装，那么就不会发生这种错误。</p>
+<p>​        容器的hashCode和equals等方法也会间接地执行迭代操作，当容器作为另一个容器的元素或键值时，就会出现这种情况。同样，containsAll，removeAll和retainAll等方法，以及把容器作为参数的构造函数，都会对容器进行迭代。所有这些间接地迭代操作都可能抛出ConcurrentModificationException。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java并发编程实战学习笔记-第五章-5-1-同步容器类/" rel="tag"># Java并发编程实战学习笔记-第五章-5.1-同步容器类</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/19/Java并发编程实战——学习笔记-二/" rel="next" title="Java并发编程实战——学习笔记(二)">
+                <i class="fa fa-chevron-left"></i> Java并发编程实战——学习笔记(二)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/19/计算机信息技术笔记第一章-一/" rel="prev" title="计算机信息技术笔记第一章(一)">
+                计算机信息技术笔记第一章(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/coldplay.png" alt="zxdong">
+            
+              <p class="site-author-name" itemprop="name">zxdong</p>
+              <p class="site-description motion-element" itemprop="description">Lights will guide you home.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Chnjack" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第五章-基础构建模块"><span class="nav-text">第五章 基础构建模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-线程容器类"><span class="nav-text">5.1 线程容器类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#程序清单5-1-Vector上可能导致混乱结果的复合操作"><span class="nav-text">程序清单5-1 Vector上可能导致混乱结果的复合操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#程序清单5-2-在使用客户端加锁的Vector上的复合操作"><span class="nav-text">程序清单5-2 在使用客户端加锁的Vector上的复合操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#程序清单5-3-可能抛出ArrayIndexOutOfBoundsException的迭代操作"><span class="nav-text">程序清单5-3 可能抛出ArrayIndexOutOfBoundsException的迭代操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#程序清单5-4-带有客户端加锁的迭代"><span class="nav-text">程序清单5-4 带有客户端加锁的迭代</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-迭代器与ConcurrentModificationException"><span class="nav-text">5.1.2 迭代器与ConcurrentModificationException</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#程序清单5-5-通过Iterator来迭代List"><span class="nav-text">程序清单5-5 通过Iterator来迭代List</span></a></li></ol></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-3-隐藏迭代器"><span class="nav-text">5.1.3 隐藏迭代器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#程序清单5-6-隐藏在字符串连接中的迭代操作（不要这么做）"><span class="nav-text">程序清单5-6 隐藏在字符串连接中的迭代操作（不要这么做）</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zxdong</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript函数式编程,">
+  <meta name="keywords" content="Java并发编程实战——学习笔记-二,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="函数式编程的专用概念1.匿名函数​    在函数式编程中，函数是可以没有名字的。有时为了完成某些事而编写这个函数，但是由于这个函数只是临时性的，所以就没有理由去生成一个顶层的函数对象。如： 12345678910111213function map(array,func)&amp;#123;    var res = [];    for(var i = 0; i &amp;lt; array.length; i">
-<meta name="keywords" content="JavaScript函数式编程">
+<meta name="description" content="第四章 对象的组合4.1 设计线程安全的类在设计线程安全类的过程中，需要包含以下三个基本要素： 找出构成对象状态的所有变量 找出约束状态变量的不变性条件 建立对象状态的并发访问管理策略  4.2 实例封闭将数据封装在对象内部，可以将数据的访问限制在对象的方法上，从而更容易确保线程在访问数据时总能持有正确的锁。​        下列程序中，PersonSet说明了如何通过封闭与加锁机制使一个类成为线">
+<meta name="keywords" content="Java并发编程实战——学习笔记-二">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript函数式编程理解(1)">
-<meta property="og:url" content="chnjack.github.io/2019/07/20/JavaScript函数式编程理解-1/index.html">
+<meta property="og:title" content="Java并发编程实战——学习笔记(二)">
+<meta property="og:url" content="chnjack.github.io/2019/12/19/Java并发编程实战——学习笔记-二/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="函数式编程的专用概念1.匿名函数​    在函数式编程中，函数是可以没有名字的。有时为了完成某些事而编写这个函数，但是由于这个函数只是临时性的，所以就没有理由去生成一个顶层的函数对象。如： 12345678910111213function map(array,func)&amp;#123;    var res = [];    for(var i = 0; i &amp;lt; array.length; i">
+<meta property="og:description" content="第四章 对象的组合4.1 设计线程安全的类在设计线程安全类的过程中，需要包含以下三个基本要素： 找出构成对象状态的所有变量 找出约束状态变量的不变性条件 建立对象状态的并发访问管理策略  4.2 实例封闭将数据封装在对象内部，可以将数据的访问限制在对象的方法上，从而更容易确保线程在访问数据时总能持有正确的锁。​        下列程序中，PersonSet说明了如何通过封闭与加锁机制使一个类成为线">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-20T09:34:30.668Z">
+<meta property="og:updated_time" content="2019-12-19T14:03:00.119Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript函数式编程理解(1)">
-<meta name="twitter:description" content="函数式编程的专用概念1.匿名函数​    在函数式编程中，函数是可以没有名字的。有时为了完成某些事而编写这个函数，但是由于这个函数只是临时性的，所以就没有理由去生成一个顶层的函数对象。如： 12345678910111213function map(array,func)&amp;#123;    var res = [];    for(var i = 0; i &amp;lt; array.length; i">
+<meta name="twitter:title" content="Java并发编程实战——学习笔记(二)">
+<meta name="twitter:description" content="第四章 对象的组合4.1 设计线程安全的类在设计线程安全类的过程中，需要包含以下三个基本要素： 找出构成对象状态的所有变量 找出约束状态变量的不变性条件 建立对象状态的并发访问管理策略  4.2 实例封闭将数据封装在对象内部，可以将数据的访问限制在对象的方法上，从而更容易确保线程在访问数据时总能持有正确的锁。​        下列程序中，PersonSet说明了如何通过封闭与加锁机制使一个类成为线">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="chnjack.github.io/2019/07/20/JavaScript函数式编程理解-1/">
+  <link rel="canonical" href="chnjack.github.io/2019/12/19/Java并发编程实战——学习笔记-二/">
 
 
 
 
 
-  <title>JavaScript函数式编程理解(1) | 学习笔记</title>
+  <title>Java并发编程实战——学习笔记(二) | 学习笔记</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="chnjack.github.io/2019/07/20/JavaScript函数式编程理解-1/">
+    <link itemprop="mainEntityOfPage" href="chnjack.github.io/2019/12/19/Java并发编程实战——学习笔记-二/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zxdong">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript函数式编程理解(1)</h1>
+          <h1 class="post-title" itemprop="name headline">Java并发编程实战——学习笔记(二)</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-20T13:45:35+08:00">
-                2019-07-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-19T22:01:55+08:00">
+                2019-12-19
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/《JAVA并发编程实战》阅读笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">《JAVA并发编程实战》阅读笔记</span>
                   </a>
                 </span>
 
@@ -342,18 +342,21 @@
       
 
       
-        <h1 id="函数式编程的专用概念"><a href="#函数式编程的专用概念" class="headerlink" title="函数式编程的专用概念"></a>函数式编程的专用概念</h1><h2 id="1-匿名函数"><a href="#1-匿名函数" class="headerlink" title="1.匿名函数"></a>1.匿名函数</h2><p>​    在函数式编程中，函数是可以没有名字的。有时为了完成某些事而编写这个函数，但是由于这个函数只是临时性的，所以就没有理由去生成一个顶层的函数对象。如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">map</span>(<span class="params">array,func</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> res = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length; i++)&#123;</span><br><span class="line">        res.push(func(array[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> mapped = map([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>],<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n = n + <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line">print(mapped);</span><br><span class="line">运行这段代码，会打印：</span><br><span class="line"><span class="number">2</span>，<span class="number">4</span>，<span class="number">6</span>，<span class="number">8</span>，<span class="number">10</span><span class="comment">//数组[1,3,5,7,9]中的每一个元素加1</span></span><br></pre></td></tr></table></figure>
+        <h2 id="第四章-对象的组合"><a href="#第四章-对象的组合" class="headerlink" title="第四章 对象的组合"></a>第四章 对象的组合</h2><h4 id="4-1-设计线程安全的类"><a href="#4-1-设计线程安全的类" class="headerlink" title="4.1 设计线程安全的类"></a>4.1 设计线程安全的类</h4><h6 id="在设计线程安全类的过程中，需要包含以下三个基本要素："><a href="#在设计线程安全类的过程中，需要包含以下三个基本要素：" class="headerlink" title="在设计线程安全类的过程中，需要包含以下三个基本要素："></a>在设计线程安全类的过程中，需要包含以下三个基本要素：</h6><ul>
+<li>找出构成对象状态的所有变量</li>
+<li>找出约束状态变量的不变性条件</li>
+<li>建立对象状态的并发访问管理策略</li>
+</ul>
+<h4 id="4-2-实例封闭"><a href="#4-2-实例封闭" class="headerlink" title="4.2 实例封闭"></a>4.2 实例封闭</h4><h6 id="将数据封装在对象内部，可以将数据的访问限制在对象的方法上，从而更容易确保线程在访问数据时总能持有正确的锁。"><a href="#将数据封装在对象内部，可以将数据的访问限制在对象的方法上，从而更容易确保线程在访问数据时总能持有正确的锁。" class="headerlink" title="将数据封装在对象内部，可以将数据的访问限制在对象的方法上，从而更容易确保线程在访问数据时总能持有正确的锁。"></a>将数据封装在对象内部，可以将数据的访问限制在对象的方法上，从而更容易确保线程在访问数据时总能持有正确的锁。</h6><p>​        下列程序中，PersonSet说明了如何通过封闭与加锁机制使一个类成为线程安全的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ThreadSafe</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonSet</span></span>&#123;</span><br><span class="line">	<span class="meta">@GuardedBy</span>(<span class="string">"this"</span>)</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> Set&lt;Person&gt; mySet = <span class="keyword">new</span> HashSet&lt;Person&gt;();</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">addPerson</span><span class="params">(Person p)</span></span>&#123;</span><br><span class="line">		mySet.add(p);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">boolean</span> <span class="title">containsPerson</span><span class="params">(Person p)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> mySet.contains(p);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>map中的第二个参数其实就是匿名函数，它对于map函数的第一个参数来说是有作用的，但是对于map函数外的代码，其实是没有作用的，所以只需要匿名即可。</p>
-<h2 id="2-柯里化"><a href="#2-柯里化" class="headerlink" title="2.柯里化"></a>2.柯里化</h2><p>​        柯里化是把接受多个参数的函数变成接受一个单一参数的函数，并且返回接受余下的参数而且返回结果的新函数。如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curring</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> num + x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> add5 = curring(<span class="number">5</span>);</span><br><span class="line"><span class="keyword">var</span> add6 = curring(<span class="number">6</span>);</span><br><span class="line">print(add5(<span class="number">1</span>));</span><br><span class="line">print(add6(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//结果为：</span></span><br><span class="line"><span class="comment">//6</span></span><br><span class="line"><span class="comment">//7</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">###### 		Java监视器</span><br></pre></td></tr></table></figure>
 
-<p>​        要注意的是，curring函数接受一个参数，并返回一个函数，这个函数可以像预期那样被调用。而两个变量add5、add6可以保持curring()返回的函数，而这个函数可以接受一个参数，从而返回代码中的 num + x 的值。</p>
-<h2 id="3-高阶函数"><a href="#3-高阶函数" class="headerlink" title="3.高阶函数"></a>3.高阶函数</h2><p>​        上文匿名函数中的map函数即是一种高阶函数。map(array,func)已经表明：将func作用于array中的每一个元素，最终返回一个新的array。而map对于array和func的实现是没有预先的假设的，所以这种函数被称为“高阶函数”：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">fucntion map = (array,func)&#123;</span><br><span class="line">    <span class="keyword">var</span> res = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length; i++)&#123;</span><br><span class="line">        res.push(func(array[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> mapped = map([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>],<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n += <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line">print(mapped); <span class="comment">//2,4,6,8,10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mapped1 =map([<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>,<span class="string">"four"</span>],</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"("</span>+n+<span class="string">")"</span>;</span><br><span class="line">&#125;);</span><br><span class="line">print(mapped1); <span class="comment">//(one),(two),(three),(four)</span></span><br></pre></td></tr></table></figure>
+<p>​        遵循Java监视器模式的对象会把对象的所有可变状态都封装起来，并由对象自己的内置锁来保护。</p>
+<p>​        Java监视器模式仅仅是一种编写代码的约定，对于任何一种锁对象，只要自始至终都使用该锁对象，都可以用来保护对象的状态。以下代码通过一个私有锁来保护状态：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrivateLock</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> Object myLock = <span class="keyword">new</span> Object();</span><br><span class="line">	<span class="meta">@GuardedBy</span>(<span class="string">"myLock"</span>) Widget widget;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">someMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">synchronized</span>(myLock)&#123;</span><br><span class="line">			<span class="comment">//访问或修改Widget的状态</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>​        mapped和mapped1都调用了map函数，但是结果不同，是因为map参数本身的已经进行了一次抽象，而map函数进行了第二次抽象。高阶的“阶”可以理解为抽象的层次。</p>
+<p>​        私有的锁对象可以将锁封装起来，使客户代码无法得到锁，使客户代码可以通过公有方法来访问锁，以便参与到它的同步策略中。</p>
 
       
     </div>
@@ -371,7 +374,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript函数式编程/" rel="tag"># JavaScript函数式编程</a>
+            <a href="/tags/Java并发编程实战——学习笔记-二/" rel="tag"># Java并发编程实战——学习笔记-二</a>
           
         </div>
       
@@ -384,14 +387,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/12/19/Java并发编程实战——学习笔记-一/" rel="next" title="Java并发编程实战——学习笔记(一)">
+                <i class="fa fa-chevron-left"></i> Java并发编程实战——学习笔记(一)
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/20/JavaScript函数式编程理解-2/" rel="prev" title="JavaScript 函数式编程理解笔记(2)">
-                JavaScript 函数式编程理解笔记(2) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/12/19/Java并发编程实战学习笔记-三-第五章-5-1-同步容器类/" rel="prev" title="Java并发编程实战学习笔记(三)-第五章-5.1-同步容器类">
+                Java并发编程实战学习笔记(三)-第五章-5.1-同步容器类 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -536,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函数式编程的专用概念"><span class="nav-text">函数式编程的专用概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-匿名函数"><span class="nav-text">1.匿名函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-柯里化"><span class="nav-text">2.柯里化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-高阶函数"><span class="nav-text">3.高阶函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第四章-对象的组合"><span class="nav-text">第四章 对象的组合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-设计线程安全的类"><span class="nav-text">4.1 设计线程安全的类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#在设计线程安全类的过程中，需要包含以下三个基本要素："><span class="nav-text">在设计线程安全类的过程中，需要包含以下三个基本要素：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-实例封闭"><span class="nav-text">4.2 实例封闭</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#将数据封装在对象内部，可以将数据的访问限制在对象的方法上，从而更容易确保线程在访问数据时总能持有正确的锁。"><span class="nav-text">将数据封装在对象内部，可以将数据的访问限制在对象的方法上，从而更容易确保线程在访问数据时总能持有正确的锁。</span></a></li></ol></li></ol></div>
             
 
           </div>
